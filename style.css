@@ -1,0 +1,369 @@
+* {
+    padding: 0;
+    /* iç boşluğu sıfırladık */
+    margin: 0;
+    /* dış boşluğu sıfırladık */
+    border: none;
+    /* kenarlığı kaldırdık */
+    text-decoration: none;
+    /* altı çizili olanları kaldırdık. */
+    list-style-type: none;
+}
+
+* :focus {
+    outline: 0;
+    /* focus olduğunda çıkan kenarlık kalktı. Örnek arama bölümüne tıkla */
+
+}
+
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* Standart Sistem Fontunu Kullanmak */
+    height: 100%;
+
+}
+
+.sohbet {
+    height: 100%;
+    display: flex;
+    /* sidebar etiketi ve icerik etiketini yan yana getirdim */
+
+}
+
+.sohbet .sidebar {
+    width: 300px;
+    min-width: 300px;
+    /* sidebarımın alanı kalmayınca alanı daraltmasın diye min width kullandım.*/
+    background-color: #f5f5f5;
+    border-right: 1px solid black;
+    /* sidebarımın sağ tarıfına kenarlık verdim.  */
+    overflow: auto;
+
+}
+
+.sohbet .icerik {
+    flex: 1;
+    /* sidebardan kalan genişlik kısmını doldurduk. */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* search -----------------------start---------- */
+.sohbet .sidebar .arama {
+    height: 50px;
+    min-height: 50px;
+    border-bottom: 1px solid black;
+    /* bottom kenarın alt kısmına çizgi çeker  */
+    position: relative;
+    /* position absolute kullandığım zaman bu kodu yazınca arama divimin içinde kaldı. */
+    padding: 0px 10px;
+    display: flex;
+    /* esneklik kazandırdım 1.aşama */
+    align-items: center;
+    /* arama bölümüm otomatik ortalandı. 2.aşama */
+
+}
+
+.sohbet .sidebar .arama input {
+    width: 100%;
+    height: 30px;
+    background: #fff;
+    border-radius: 30px;
+    /* inputuma Yüksekliği kadar oran verdim tam oval oldu   */
+    font-size: 14px;
+    padding: 0 35px 0 15px;
+    /* sağdan 35px vermemin amacı yazdığımda sonuna geldiğinde yazım devam etmesin. */
+
+}
+
+
+
+.sohbet .sidebar .arama i {
+    top: 0;
+    right: 0;
+    position: absolute;
+    /* arama iconumu havada tuttum */
+    width: 37px;
+    height: 50px;
+    display: flex;
+    /* esneklik kazandırdım 1.aşama */
+    align-items: center;
+    /* ortaladım 2.aşama */
+    font-size: 14px;
+    color: #999;
+
+}
+
+/* arama  end----------------------------------------- */
+
+.sohbet .sidebar .kisiler ul li a:hover {
+    background: #fff;
+    /* a etiketimin üzerine geldiğimde arkaplan rengini beyaz yaptım {hover sayesinde} */
+}
+
+.sohbet .sidebar .kisiler ul li a {
+
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 0 10px;
+
+}
+
+.sohbet .sidebar .kisiler ul li a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    /* avatarımdan yazımı ayırdım */
+
+}
+
+.sohbet .sidebar .kisiler ul li a .isim {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    /* kalınlık */
+}
+
+.sohbet .sidebar .kisiler ul li a .mesaj {
+
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 3px;
+
+}
+
+.sohbet .sidebar .kisiler {
+    overflow: auto;
+    /*  bu kodla scrollu tüm bloga uyguladık */
+}
+
+.sohbet .sidebar {
+    display: flex;
+    /* arama ile kişiler yan yana geldi */
+    flex-direction: column;
+    /* aşağı doğru yön verdim */
+    /* scrollu kullanmak için yaptım bunları */
+
+}
+
+.sohbet .sidebar .kisiler ul li.aktif a {
+    background: #fff;
+}
+
+.sohbet .sidebar .kisiler ul li a .notification {
+    background: red;
+
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    line-height: 17px;
+    /* kutu içerisinde ortaladım */
+    margin-left: auto;
+    /* 5 i sağ tarafa attık.  [a etiketinde flex kullandığımız için atomatik hesaplıyor.*/
+
+}
+
+/* --------------------mesajbaslık----------------------------- */
+
+.sohbet .icerik .mesajbaslık {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    min-height: 50px;
+    padding: 0 0 0 15px;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+    /* space-between ile kullanıcıbilgi etiketi ile iconları ayırdık */
+
+}
+
+
+.sohbet .icerik .mesajbaslık .kullanıcıbilgi {
+    display: flex;
+    align-items: center;
+    /* resmin büyükse yazılarım kücükse centerla tam ortaladık */
+}
+
+.sohbet .icerik .mesajbaslık .kullanıcıbilgi img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.sohbet .icerik .mesajbaslık .kullanıcıbilgi .kullanıcı .isim {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+}
+
+.sohbet .icerik .mesajbaslık .kullanıcıbilgi .kullanıcı .songorulme {
+    font-size: 13px;
+    color: #999;
+}
+
+
+
+.sohbet .icerik .mesajbaslık .iconlar ul {
+    display: flex;
+
+
+}
+
+.sohbet .icerik .mesajbaslık .iconlar ul li {
+    width: 30px;
+}
+
+
+.sohbet .icerik .mesajbaslık .iconlar ul li a {
+    font-size: 19px;
+    color: #999;
+
+
+
+}
+
+/* .sohbet .icerik .mesajbaslık .iconlar ul li.ünlem a {} */
+
+
+
+.sohbet .icerik .mesajbaslık .iconlar ul li a:hover {
+    color: red;
+    /* iconların üstüne geldiğinde rengi kırmızı oldu */
+}
+
+/* ---------------------mesajbaslık end------------------------ */
+
+
+/* ---------------------mesajform start ----------------------- */
+
+.sohbet .icerik .mesajicerik {
+    flex: 1;
+    /* flex 1 ile en alta çektik tabi içerik kısmına flex ve culm verdik. */
+}
+
+.sohbet .icerik .mesajform {
+    border-top: 1px solid #222;
+    background: #eee;
+    padding: 10px
+}
+
+.sohbet .icerik .mesajform ul {
+    display: flex;
+}
+
+.sohbet .icerik .mesajform ul li.input {
+    flex: 1;
+    
+}
+
+.sohbet .icerik .mesajform ul li.input input {
+    width: 100%;
+    box-sizing: border-box;
+    /* iconlar taştığı için bu kodla dengeledik */
+    height: 36px;
+    border: 1px solid #ddd;
+    border-radius: 36px;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+
+.sohbet .icerik .mesajform ul li{
+    margin: 0 2 px;
+}
+.sohbet .icerik .mesajform ul li a {
+    width: 36px;
+    height: 36px;
+    display: block;
+    /* width ve heighti uygulamak için blok yaptık */
+    border-radius: 50%;
+    color: #fff;
+    background: #333;
+    text-align: center;
+    /* ikonu ortaladım */
+    line-height: 36px;
+    /* satır yüksekliğini tam ortaladım. */
+}
+
+
+.sohbet .icerik .mesajform ul li.laugh-btn a {
+    background: #339af0 ;
+}
+
+.sohbet .icerik .mesajform ul li.mic-btn a {
+    background: red ;
+}
+
+.sohbet .icerik .mesajform ul li.image-btn a {
+    background: green ;
+}
+
+
+/* ---------------------mesajform end ----------------------- */
+
+/* ---------------------mesajicerik start-------------------- */
+
+.sohbet .icerik .mesajicerik {
+display: flex;
+flex-direction: column;
+padding: 16px;
+
+}
+
+.sohbet .icerik .mesajicerik .empty {
+    margin-bottom: auto;
+    /* bu clas ve bu kodu üstteki yazıları alta çektik. ya da alttaki örneğe bak */
+}
+
+/* .sohbet .icerik .mesajicerik::before {
+    content: '';
+    margin-bottom: auto;
+    2.yol 
+
+} */
+
+
+
+.sohbet .icerik .mesajicerik .mesaj {
+align-self: flex-start;
+/*Genişliği kadar hızaladık */
+margin-bottom: 20px;
+/* 2 mesajın arasını açtım. */
+}
+
+.sohbet .icerik .mesajicerik .mesaj .bubble {
+    padding: 6px 12px;
+    background: #f7f7f7;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    /* yazıyla mesafesini ayarladım */
+}
+
+.sohbet .icerik .mesajicerik .mesaj .zaman {
+font-size: 14px;
+color: #999;
+}
+
+.sohbet .icerik .mesajicerik .mesaj.me {
+    align-self: flex-end;
+    /* ilk mesajımı sağ tarafa çektim */
+}
+
+.sohbet .icerik .mesajicerik .mesaj.me .zaman {
+    text-align: right;
+    /* 5dk önce yazan divimi sağ tarafa aldım. */
+}
+
+.sohbet .icerik .mesajicerik .mesaj.me .bubble {
+background: #2196f3;
+color: #fff;
+}
